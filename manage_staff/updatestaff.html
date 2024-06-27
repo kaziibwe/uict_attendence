@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Registration - Uganda National Institute</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <div class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
+      <h1 class="text-3xl font-bold text-center">Dashboard</h1>
+      <nav>
+        <a
+          href="/dashboard.html"
+          id="attendance-link"
+          class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700"
+          >Manage Staff</a
+        >
+        <a
+          href="/attendance.html"
+          id="missed-attendance-link"
+          class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700"
+          > Manage departments</a
+        >
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-4">Staff Registration</h1>
+
+      <!-- Attendance Section -->
+      <div id="attendance-section" class="content-section">
+        <!-- Buttons -->
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <label for="filter" class="block text-gray-700">Filter by:</label>
+            <select
+              id="filter"
+              class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
+              <option value="day">Daily</option>
+              <option value="week">Weekly</option>
+              <option value="month">Monthly</option>
+            </select>
+          </div>
+          <div class="flex space-x-4">
+            <button
+              id="add-staff-btn"
+              class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+            >
+              Add New Staff
+            </button>
+            <button
+              id="add-department-btn"
+              class="py-2 px-4 bg-green-500 text-white rounded-md shadow-md hover:bg-green-700"
+            >
+              Create New Department
+            </button>
+          </div>
+        </div>
+
+        <!-- Registration Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-hidden">
+          <div class="w-full max-w-md">
+            <form id="updateUserForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+              <h2 class="text-2xl font-bold mb-4 text-center">Update User</h2>
+        
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                  Name
+                </label>
+                <input id="name" type="text" placeholder="Enter your name" class=" name shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+        
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Email
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class=" email  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Title
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class="title shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Date of Birth
+                </label>
+                <input id="email" type="datetime" placeholder="Enter your email" class="dob shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  current Appointment
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class=" current_appointment appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Appointment Date
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class="appointment_date appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+        
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  NIN
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class=" nin shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  TIN
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class="tin shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Staff Number
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class="staff_number shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                  Phone
+                </label>
+                <input id="email" type="email" placeholder="Enter your email" class="phone shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              </div>
+            
+              <!-- <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+                  Role
+                </label>
+                <select id="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div> -->
+        
+              <div class="flex items-center justify-between">
+                <button id="updateButton" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        
+        </div>
+      </div>
+
+      <!-- Missed Attendance Section -->
+      <div id="missed-attendance-section" class="content-section hidden">
+        <h2 class="text-2xl font-bold mb-4">Missed Attendance</h2>
+      </div>
+    </div>
+
+    <!-- Modal for Adding New Staff -->
+    <div
+      id="add-staff-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Add New Staff</h2>
+        <label for="staff-name" class="block text-gray-700">Name:</label>
+        <input
+          type="text"
+          id="staff-name"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <label for="staff-image" class="block text-gray-700 mt-4"
+          >Image URL:</label
+        >
+        <input
+          type="text"
+          id="staff-image"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div class="flex justify-end mt-4">
+          <button
+            id="save-staff-btn"
+            class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+          >
+            Save
+          </button>
+          <button
+            id="cancel-staff-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Creating New Department -->
+    <div
+      id="add-department-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Create New Department</h2>
+        <label for="department-name" class="block text-gray-700"
+          >Department Name:</label
+        >
+        <input
+          type="text"
+          id="department-name"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div class="flex justify-end mt-4">
+          <button
+            id="save-department-btn"
+            class="py-2 px-4 bg-green-500 text-white rounded-md shadow-md hover:bg-green-700"
+          >
+            Save
+          </button>
+          <button
+            id="cancel-department-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Selecting Month -->
+    <div
+      id="month-selection-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Select Month</h2>
+        <label for="month-select" class="block text-gray-700">Month:</label>
+        <select
+          id="month-select"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        >
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <div class="flex justify-end mt-4">
+          <button
+            id="select-month-btn"
+            class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+          >
+            Select
+          </button>
+          <button
+            id="cancel-month-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="javascript.js"></script>
+    <script type="module" src="/api_integrations/constants.js"></script>
+  </body>
+</html>
+
+<script>
+
+  const url ='https://workplan.uict.ac.ug';
+  const auth_token = 'your_auth_token_here'; // Define the auth_token
+
+
+const urlParams = new URLSearchParams(window.location.search);
+        //            Extract the value of the 'id' parameter
+        const id = urlParams.get('id');
+        // console.log(id);
+        // const id =30
+
+
+
+        fetch(`${url}/api/auth/getSingleUser/${id}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${auth_token}` // Include the token in the Authorization header
+
+            }
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then( 
+              
+            data => {
+
+              console.log(data)
+
+                // console.log(data.users.email)
+                
+                document.querySelector('.email').value = data.user.email;
+                document.querySelector('.name').value = data.user.name;
+                document.querySelector('.phone').value = data.user.phone;
+                document.querySelector('.title').value = data.user.title;
+                document.querySelector('.dob').value = data.user.dob;
+                document.querySelector('.current_appointment').value = data.user.current_appointment;  
+                document.querySelector('.appointment_date').value = data.user.appointment_date;
+                document.querySelector('.nin').value = data.user.nin;
+                document.querySelector('.tin').value = data.user.tin;
+                document.querySelector('.staff_number').value = data.user.staff_number;
+                document.querySelector('.phone').value = data.user.phone;
+            }
+          
+          );
+
+
+
+          const form1 = document.querySelector('.form');
+        form1.addEventListener('submit', event => {
+            event.preventDefault();
+            const formData = new FormData(form1);
+            const data = Object.fromEntries(formData);
+
+            fetch(`${url}/api/auth/updating/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${auth_token}` // Include the token in the Authorization header
+
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                        let message = document.querySelector(".message")
+                        message.textContent =data.message;
+                        setTimeout(() => {
+                            message.textContent = ""
+                        }, 9000)
+                        window.location.href = `/dashboard.html`;
+
+                })
+                .catch(error => console.log(error));
+
+        });
+        
+</script>

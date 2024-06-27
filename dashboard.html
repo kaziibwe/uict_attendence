@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Registration - Uganda National Institute</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <div class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
+      <h1 class="text-3xl font-bold text-center">Dashboard</h1>
+      <nav>
+        <a
+          href="dashboard.html"
+          id="attendance-link"
+          class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700"
+          >Manage Staff</a
+        >
+        <a
+          href="attendance.html"
+          id="missed-attendance-link"
+          class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700"
+          > Manage departments</a
+        >
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-4">Staff Registration</h1>
+
+      <!-- Attendance Section -->
+      <div id="attendance-section" class="content-section">
+        <!-- Buttons -->
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <label for="filter" class="block text-gray-700">Filter by:</label>
+            <select
+              id="filter"
+              class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
+              <option value="day">Daily</option>
+              <option value="week">Weekly</option>
+              <option value="month">Monthly</option>
+            </select>
+          </div>
+          <div class="flex space-x-4">
+            <button
+              id="add-staff-btn"
+              class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+            >
+              Add New Staff
+            </button>
+            <button
+              id="add-department-btn"
+              class="py-2 px-4 bg-green-500 text-white rounded-md shadow-md hover:bg-green-700"
+            >
+              Create New Department
+            </button>
+          </div>
+        </div>
+
+        <!-- Registration Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-hidden">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Staff ID
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Name
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Email
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Phone
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tableRows" class="bg-white divide-y divide-gray-200">
+              <!-- Data goes here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Missed Attendance Section -->
+      <div id="missed-attendance-section" class="content-section hidden">
+        <h2 class="text-2xl font-bold mb-4">Missed Attendance</h2>
+      </div>
+    </div>
+
+    <!-- Modal for Adding New Staff -->
+    <div
+      id="add-staff-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Add New Staff</h2>
+        <label for="staff-name" class="block text-gray-700">Name:</label>
+        <input
+          type="text"
+          id="staff-name"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <label for="staff-image" class="block text-gray-700 mt-4"
+          >Image URL:</label
+        >
+        <input
+          type="text"
+          id="staff-image"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div class="flex justify-end mt-4">
+          <button
+            id="save-staff-btn"
+            class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+          >
+            Save
+          </button>
+          <button
+            id="cancel-staff-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Creating New Department -->
+    <div
+      id="add-department-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Create New Department</h2>
+        <label for="department-name" class="block text-gray-700"
+          >Department Name:</label
+        >
+        <input
+          type="text"
+          id="department-name"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        />
+        <div class="flex justify-end mt-4">
+          <button
+            id="save-department-btn"
+            class="py-2 px-4 bg-green-500 text-white rounded-md shadow-md hover:bg-green-700"
+          >
+            Save
+          </button>
+          <button
+            id="cancel-department-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Selecting Month -->
+    <div
+      id="month-selection-modal"
+      class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center"
+    >
+      <div class="bg-white rounded-lg p-8">
+        <h2 class="text-xl font-bold mb-4">Select Month</h2>
+        <label for="month-select" class="block text-gray-700">Month:</label>
+        <select
+          id="month-select"
+          class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        >
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <div class="flex justify-end mt-4">
+          <button
+            id="select-month-btn"
+            class="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700"
+          >
+            Select
+          </button>
+          <button
+            id="cancel-month-btn"
+            class="ml-4 py-2 px-4 bg-gray-500 text-white rounded-md shadow-md hover:bg-gray-700"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="javascript.js"></script>
+    <script type="module" src="/api_integrations/constants.js"></script>
+  </body>
+</html>
+
+
+<script>
+  const url ='https://workplan.uict.ac.ug';
+  const auth_token = 'your_auth_token_here'; // Define the auth_token
+
+
+
+   const loadTable = () => {
+
+
+fetch(`${url}/api/auth/getAllUser`, {
+    headers: {
+        'Authorization': `Bearer ${auth_token}` // Include the token in the Authorization header
+    }
+})
+    .then(res => {
+        return res.json();
+    })
+    .then(
+      
+    
+    data => {
+        let rows = '';
+        let sn = 1;
+        data.users.forEach(user => {
+            // console.log(user)
+
+            rows += `<tr><td>${sn++}</td><td>${user.name}</td><td>${user.email}</td><td>${user.phone}</td><td><button onclick='deleteItem(${user.id});' >delete</button></td><td><button onclick='update1(${user.id});' >update</button></td></tr>`;
+        });
+        document.querySelector('#tableRows').innerHTML = rows;
+
+    }).catch(err => console.log(err));
+
+}
+
+loadTable();
+
+const update1 = (id) => {
+        // console.log(id);
+        window.location.href = `/manage_staff/updatestaff.html?id=${id}`;
+      }
+
+
+</script>
